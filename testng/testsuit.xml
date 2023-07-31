@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="All API Test Suite" parallel="methods" >
+    <listeners>
+        <listener class-name="com.swapi.listeners.TestListener"/>
+    </listeners>
+    <test name="All Suit Tests">
+        <packages>
+            <package name="com.swapi.*">
+            </package>
+        </packages>
+    </test>
+</suite>
