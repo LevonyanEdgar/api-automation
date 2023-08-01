@@ -56,8 +56,7 @@ public class PeopleServiceHelper {
     }
 
 
-    public static List<People> getPeoplesByUrl(List<String> urlList) {
-        List<People> allPeoples = getAllPeoples();
+    public static List<People> getPeoplesByUrl(List<String> urlList, List<People> allPeoples) {
         List<People> filteredPeoples = new ArrayList<>();
         log.info("gating people by urls ");
         for (String url :

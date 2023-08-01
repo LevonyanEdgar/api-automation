@@ -18,7 +18,8 @@ public class FilmTest extends BaseTest {
         SoftAssert softAssert = new SoftAssert();
         Film latestFilm = FilmServiceHelper.getLatestFilm();
 
-        List<People> usersByUrl = PeopleServiceHelper.getPeoplesByUrl(latestFilm.getCharacters());
+        List<People> allPeoples = PeopleServiceHelper.getAllPeoples();
+        List<People> usersByUrl = PeopleServiceHelper.getPeoplesByUrl(latestFilm.getCharacters(),allPeoples);
         softAssert.assertNotNull(usersByUrl, "Cant fined peoples by " + latestFilm.getCharacters().toString() + "Characters url");
 
         People tallestPerson = PeopleServiceHelper.getTallestPerson(usersByUrl);
@@ -27,7 +28,7 @@ public class FilmTest extends BaseTest {
 
         softAssert.assertNotNull(tallestPerson.getVehicles(), " person vehicle list is null");
 
-        List<People> peoplesByFilmsCount = PeopleServiceHelper.getPeoplesByFilmsCount(PeopleServiceHelper.getAllPeoples(), FilmServiceHelper.getFilmsList().getCount());
+        List<People> peoplesByFilmsCount = PeopleServiceHelper.getPeoplesByFilmsCount(allPeoples, FilmServiceHelper.getFilmsList().getCount());
 
         People tallestPerson1 = PeopleServiceHelper.getTallestPerson(peoplesByFilmsCount);
 
